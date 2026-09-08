@@ -40,28 +40,26 @@ Nilai jual utama dari sistem ini adalah kemampuannya menangani perubahan status 
 4. **Validasi & Eksekusi:** Server Laravel menerima notifikasi tersebut, memvalidasi *Signature Key* untuk memastikan data benar-benar berasal dari Midtrans (keamanan), lalu secara otomatis memperbarui kolom `PaymentStatus` di *database* menjadi `Paid`.
    
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 56 58" src="https://github.com/user-attachments/assets/f3a9443e-10f6-406d-84f8-7b469c9326c3" />
-
-
+<br><br>
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 57 13" src="https://github.com/user-attachments/assets/47dcf8ce-141d-4fa8-af52-a5db9e623a64" />
-
-
+<br><br>
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 57 46" src="https://github.com/user-attachments/assets/d18a371f-dac4-41ea-af16-a9ee36d61aee" />
-
+<br><br>
 
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 12 01 21" src="https://github.com/user-attachments/assets/87676a75-e6cc-403d-9c3a-69db883e7eed" />
-
+<br><br>
 
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 12 01 55" src="https://github.com/user-attachments/assets/6847a7f4-bcb7-466a-a92a-6bc3f04c57a9" />
-
+<br><br>
 
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 57 55" src="https://github.com/user-attachments/assets/e89fe50b-90ea-4e21-bda9-ef13d2e4baa7" />
-
+<br><br>
 
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 58 12" src="https://github.com/user-attachments/assets/74866fd0-b58a-472e-982b-2ea93bd70dbd" />
-
+<br><br>
 
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 58 26" src="https://github.com/user-attachments/assets/6822063b-8a4f-4403-90ea-63eced2647f1" />
-
+<br><br>
 
 <img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 59 10" src="https://github.com/user-attachments/assets/ca62d754-fb3f-45a0-88f5-86e42d0bf113" />
 
