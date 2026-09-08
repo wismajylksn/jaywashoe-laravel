@@ -1,58 +1,59 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Jaywashoe Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi manajemen layanan cuci sepatu (*Full-Stack Web Application*) yang berfokus pada efisiensi pemesanan dan otomatisasi sinkronisasi status pembayaran secara *real-time*.
 
-## About Laravel
+**Tech Stack**
+* Framework: PHP & Laravel
+* Database: MySQL 
+* Payment Gateway: Midtrans (Core API & Webhook)
+* Architecture: MVC (Model-View-Controller)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Fitur Utama**
+* **Automated Payment Synchronization:** Implementasi logika *webhook* Midtrans untuk memperbarui status pesanan dari "Unpaid" menjadi "Paid" secara otomatis tanpa intervensi manual.
+* **Relational Database Design:** Merancang arsitektur basis data relasional untuk manajemen *Services* (layanan) dan *Orders* (pesanan).
+* **Secure CRUD Operations:** Sistem manajemen pemesanan yang aman dengan validasi data yang ketat.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Cara Menjalankan Lokal**
+1. Clone repositori ini: `git clone [URL_REPO_ANDA]`
+2. Instal dependensi: `composer install`
+3. Salin `.env.example` ke `.env` dan konfigurasi koneksi database Anda serta kredensial Midtrans Server Key.
+4. Buat *App Key*: `php artisan key:generate`
+5. Jalankan migrasi: `php artisan migrate`
+6. Mulai server lokal: `php artisan serve`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Arsitektur & Alur Sistem (System Architecture)**
 
-## Learning Laravel
+Aplikasi ini dibangun menggunakan arsitektur Monolith (MVC) yang terintegrasi dengan layanan pihak ketiga (Midtrans) untuk memproses transaksi. Berikut adalah komponen utama yang menggerakkan sistem:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* **Client Interface (View):** Dibangun menggunakan Laravel Blade dan CSS untuk memfasilitasi pelanggan dalam memilih layanan cuci sepatu dan menampilkan halaman *checkout*.
+* **Core Backend (Controller):** Otak dari aplikasi yang menangani logika bisnis, validasi *input* pengguna, dan pembentukan pesanan (Order).
+* **Database (Model):** Menggunakan MySQL untuk menyimpan data relasional seperti detail layanan (`Services`) dan riwayat transaksi pelanggan (`Orders`).
+* **Payment Gateway (Midtrans):** Bertindak sebagai prosesor pembayaran yang menyediakan antarmuka pembayaran (Snap API) dan mengirimkan notifikasi balik ke server kita (Webhook/HTTP Notification).
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Alur Pembayaran Otomatis (Webhook Flow)**
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+Nilai jual utama dari sistem ini adalah kemampuannya menangani perubahan status pembayaran tanpa campur tangan admin. Berikut adalah alur logikanya:
 
-## Agentic Development
+1. **Inisiasi Pesanan:** Pelanggan membuat pesanan di *website*. Server Laravel menyimpan data ke MySQL dengan status awal `Unpaid` dan meminta Token Pembayaran ke Midtrans.
+2. **Proses Pembayaran:** Pelanggan menyelesaikan pembayaran (misal: via QRIS atau Virtual Account) melalui antarmuka Midtrans Snap.
+3. **Trigger Webhook:** Segera setelah dana diterima, server Midtrans menembakkan *HTTP POST Request* secara asinkron ke *endpoint* API (Webhook) yang ada di aplikasi Laravel kita.
+4. **Validasi & Eksekusi:** Server Laravel menerima notifikasi tersebut, memvalidasi *Signature Key* untuk memastikan data benar-benar berasal dari Midtrans (keamanan), lalu secara otomatis memperbarui kolom `PaymentStatus` di *database* menjadi `Paid`.
+   
+<img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 56 58" src="https://github.com/user-attachments/assets/f3a9443e-10f6-406d-84f8-7b469c9326c3" />
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+<img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 57 13" src="https://github.com/user-attachments/assets/47dcf8ce-141d-4fa8-af52-a5db9e623a64" />
 
-```bash
-composer require laravel/boost --dev
+<img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 57 46" src="https://github.com/user-attachments/assets/d18a371f-dac4-41ea-af16-a9ee36d61aee" />
 
-php artisan boost:install
-```
+<img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 57 55" src="https://github.com/user-attachments/assets/e89fe50b-90ea-4e21-bda9-ef13d2e4baa7" />
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+<img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 58 12" src="https://github.com/user-attachments/assets/74866fd0-b58a-472e-982b-2ea93bd70dbd" />
 
-## Contributing
+<img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 58 26" src="https://github.com/user-attachments/assets/6822063b-8a4f-4403-90ea-63eced2647f1" />
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<img width="1440" height="900" alt="Screenshot 2026-09-08 at 11 59 10" src="https://github.com/user-attachments/assets/ca62d754-fb3f-45a0-88f5-86e42d0bf113" />
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
