@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #F9F7F1;
+    color: #1E2322;
+    overflow-x: hidden;
+}
+
+/* Marquee Galeri (Infinite Scroll) */
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+    display: flex;
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+    animation: marquee 35s linear infinite;
+    will-change: transform;
+}
+
+.marquee-wrapper:hover .animate-marquee {
+    animation-play-state: paused;
+}
+
+/* Efek Tepi Menyatu */
+.fade-edges {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.img-hover-zoom {
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.group:hover .img-hover-zoom {
+    transform: scale(1.05);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F9F7F1;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

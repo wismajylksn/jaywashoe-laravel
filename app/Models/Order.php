@@ -9,14 +9,21 @@ class Order extends Model
 {
     use HasFactory;
 
-    // Tambahkan ini agar field bisa diisi
     protected $fillable = [
         'uuid',
         'customer_name',
         'customer_phone',
-        'service_type',
+        // 'service_type' dihapus karena sekarang menggunakan relasi items()
         'total_amount',
+        'promo_code',
+        'discount_amount',
         'payment_status',
-        'tracking_status'
+        'tracking_status',
+        'snap_token'
     ];
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

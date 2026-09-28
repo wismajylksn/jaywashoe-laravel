@@ -1,465 +1,286 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaywashoe - Premium Shoe Treatment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jaywashoe - Cuci Sepatu Premium</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
     
-    <style>
-        :root {
-            --brand-primary: #0F172A;
-            --brand-secondary: #1E293B;
-            --brand-accent: #3B82F6;
-            --bg-body: #F8FAFC;
-            --text-main: #334155;
-            --text-muted: #64748B;
-        }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
-        .navbar-brand { font-weight: 800; color: var(--brand-primary) !important; }
-        .hero-section {
-            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-            color: white;
-            padding: 100px 0;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-        }
-        .btn-premium {
-            background-color: var(--brand-accent);
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 14px 30px;
-            font-weight: 600;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        .btn-premium:hover { background-color: #2563EB; color: white; transform: translateY(-2px); }
-        .section-title { font-weight: 800; color: var(--brand-primary); margin-bottom: 30px; }
-
-        /* ===== Promo Section ===== */
-        .promo-section {
-            position: relative;
-            background:
-                radial-gradient(circle at top right, rgba(59,130,246,0.06), transparent 55%),
-                radial-gradient(circle at bottom left, rgba(15,23,42,0.04), transparent 55%);
-        }
-        .badge-eyebrow {
-            display: inline-block;
-            padding: 6px 16px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--brand-accent);
-            background: rgba(59,130,246,0.1);
-            border-radius: 999px;
-        }
-        .promo-card {
-            position: relative;
-            border: none;
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            overflow: hidden;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-        }
-        .promo-card--light {
-            background: #ffffff;
-            box-shadow: 0 10px 30px -10px rgba(15,23,42,0.08);
-        }
-        .promo-card--dark {
-            background: linear-gradient(155deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
-            box-shadow: 0 15px 35px -8px rgba(15,23,42,0.35);
-        }
-        .promo-card:hover { transform: translateY(-8px); }
-        .promo-card--light:hover { box-shadow: 0 20px 40px -10px rgba(59,130,246,0.18); }
-        .promo-card--dark:hover { box-shadow: 0 20px 45px -8px rgba(15,23,42,0.45); }
-
-        .promo-ribbon {
-            position: absolute;
-            top: 18px;
-            right: -34px;
-            transform: rotate(45deg);
-            background: var(--brand-accent);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            padding: 5px 40px;
-            box-shadow: 0 4px 10px rgba(59,130,246,0.3);
-        }
-        .promo-ribbon--accent {
-            background: linear-gradient(90deg, #F5B400, #FF8A00);
-            box-shadow: 0 4px 10px rgba(255,138,0,0.35);
-        }
-
-        .promo-icon-wrap {
-            width: 84px;
-            height: 84px;
-            margin: 0 auto 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(59,130,246,0.1);
-        }
-        .promo-card--dark .promo-icon-wrap { background: rgba(255,255,255,0.08); }
-        .promo-icon { font-size: 2.2rem; line-height: 1; }
-
-        .promo-title { font-weight: 700; margin-bottom: 0.6rem; color: var(--brand-primary); }
-        .promo-desc { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.5rem; min-height: 44px; }
-
-        .promo-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--brand-accent);
-            text-decoration: none;
-            transition: gap 0.25s ease;
-        }
-        .promo-cta:hover { gap: 10px; color: #2563EB; }
-        .promo-cta--light { color: #fff; }
-        .promo-cta--light:hover { color: #F5B400; }
-        /* ===== End Promo Section ===== */
-        
-        /* Custom Carousel Styling untuk Screenshot */
-        .testi-img-wrapper {
-            background-color: #E2E8F0;
-            border-radius: 24px;
-            padding: 20px;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .testi-img-wrapper img {
-            max-height: 100%;
-            width: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            background-color: var(--brand-primary);
-            border-radius: 50%;
-            padding: 20px;
-        }
-
-        /* Floating WhatsApp Button */
-        .float-wa {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-        .float-wa:hover {
-            transform: scale(1.1);
-            color: white;
-        }
-        /* ===== Alamat Section ===== */
-        .address-card {
-            background: var(--bg-body);
-            border-radius: 20px;
-            padding: 2.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            box-shadow: 0 10px 30px -12px rgba(15,23,42,0.08);
-        }
-        .address-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-        .address-icon {
-            flex-shrink: 0;
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            background: rgba(59,130,246,0.1);
-            color: var(--brand-accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-        .map-wrapper {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px -12px rgba(15,23,42,0.1);
-            min-height: 350px;
-        }
-        .map-wrapper iframe { display: block; }
-        /* ===== End Alamat Section ===== */
-    </style>
+    <!-- Memanggil CSS dan JS eksternal melalui Vite -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
 </head>
-<body>
+<body class="antialiased font-sans selection:bg-brand-teal selection:text-white">
 
-    <!-- URL WhatsApp Admin (Ganti dengan nomor asli Anda) -->
-    @php
-        $waAdminUrl = "https://wa.me/6285555552353?text=Halo%20Admin%20Jaywashoe,%20saya%20ingin%20bertanya%20tentang%20layanan%20cuci%20sepatu.";
-    @endphp
+    <!-- Top Banner Lembut -->
+    <div class="bg-brand-teal text-white text-[11px] sm:text-xs font-medium tracking-wide text-center py-2.5 px-4">
+        Dapatkan diskon 15% untuk pelanggan baru! <a href="https://wa.me/628123456789" class="underline ml-1 font-bold hover:text-brand-mustard transition-colors">Klaim Promo</a>
+    </div>
 
-    <!-- Navbar -->
-                <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3 sticky-top">
-                    <div class="container">
-                        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <img src="{{ asset('images/logo.png') }}" alt="Jaywashoe Logo" style="height: 32px; width: auto;">
-                Jaywashoe
+    <!-- Floating Navbar Profesional -->
+    <div class="relative w-full z-50 flex flex-col items-center px-4 mt-4 md:mt-6 mb-8">
+        <nav class="w-full max-w-5xl bg-white/90 backdrop-blur-md border border-gray-100 rounded-full py-2.5 px-5 md:px-6 flex justify-between items-center shadow-glass transition-all duration-300 relative z-20">
+            <!-- Logo Maskot Jaywashoe -->
+            <a href="#" class="flex items-center group gap-3">
+                <img src="{{ asset('images/logo.png') }}" alt="Jaywashoe Logo" class="h-10 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/100x100/F9F7F1/1E2322?text=Logo'">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 items-center text-[14px] font-semibold text-brand-muted">
+                <a href="#beranda" class="hover:text-brand-teal transition-colors duration-300">Beranda</a>
+                <a href="#tentang" class="hover:text-brand-teal transition-colors duration-300">Tentang</a>
+                <a href="#layanan" class="hover:text-brand-teal transition-colors duration-300">Layanan</a>
+                <a href="#galeri" class="hover:text-brand-teal transition-colors duration-300">Galeri</a>
+            </div>
+
+            <!-- CTA Order -->
+            <a href="{{ route('order.create') }}" class="hidden md:inline-block bg-brand-teal text-white px-7 py-2.5 font-bold text-sm rounded-full shadow-soft hover:shadow-float hover:-translate-y-0.5 transition-all duration-300">
+                Pesan Layanan
+            </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-dark p-2 focus:outline-none rounded-full hover:bg-gray-50 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center gap-3">
-                    <li class="nav-item"><a class="nav-link fw-medium" href="#promo">Promo</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium" href="#testimoni">Testimoni</a></li>
-                     <li class="nav-item"><a class="nav-link fw-medium" href="#alamat">Lokasi</a></li>
-                </ul>
+        </nav>
+
+        <!-- Dropdown Mobile Menu Clean -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full px-4 pt-3 z-10">
+            <div class="bg-white border border-gray-100 rounded-3xl shadow-glass flex flex-col p-6 gap-3 text-center font-semibold text-brand-dark">
+                <a href="#beranda" class="mobile-link py-2.5 border-b border-gray-50 hover:text-brand-teal transition-colors">Beranda</a>
+                <a href="#tentang" class="mobile-link py-2.5 border-b border-gray-50 hover:text-brand-teal transition-colors">Tentang</a>
+                <a href="#layanan" class="mobile-link py-2.5 border-b border-gray-50 hover:text-brand-teal transition-colors">Layanan</a>
+                <a href="#galeri" class="mobile-link py-2.5 border-b border-gray-50 hover:text-brand-teal transition-colors">Galeri</a>
+                <a href="{{ route('order.create') }}" class="mt-3 bg-brand-teal text-white px-6 py-3.5 rounded-full hover:shadow-float transition-all text-sm shadow-soft">Pesan Sekarang</a>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section text-center text-md-start">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-5 mb-md-0">
-                    <span class="badge bg-primary bg-opacity-25 text-white mb-3 px-3 py-2 rounded-pill">Perawatan Sepatu Premium</span>
-                    <h1 class="display-4 fw-bold mb-3">Langkah Bersih, Tampil Percaya Diri.</h1>
-                    <p class="lead text-white-50 mb-4">Layanan Premium Tanpa Repot: Bersih, Wangi, Antar-Jemput Gratis.</p>
-                    <a href="{{ $waAdminUrl }}" target="_blank" class="btn btn-premium btn-lg shadow" style="background-color: #22be5bc7;">Konsultasi & Pesan via WA &rarr;</a>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80" alt="Shoe Cleaning" class="img-fluid rounded-4 shadow-lg" style="transform: rotate(3deg);">
-                </div>
-            </div>
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative pt-4 pb-12 md:pt-0 md:pb-20 px-6 overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-40">
+            <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[60%] rounded-full bg-brand-teal/20 blur-[100px]"></div>
+            <div class="absolute top-[20%] right-[5%] w-[40%] h-[50%] rounded-full bg-brand-mustard/15 blur-[100px]"></div>
         </div>
-    </section>
-
-    <!-- Promo Section -->
-    <section id="promo" class="py-5 mt-4 promo-section">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <!-- <span class="badge-eyebrow">Penawaran Terbatas</span> -->
-                <h2 class="section-title mt-2">Promo Spesial</h2>
-                <p class="text-muted">Jangan lewatkan penawaran menarik dari Jaywashoe!</p>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-
-                <!-- Promo Item 1 -->
-                <!-- <div class="col-md-6 col-lg-4">
-                    <div class="promo-card promo-card--light h-100">
-                        <div class="promo-ribbon">20% OFF</div>
-                        <div class="promo-icon-wrap">
-                            <span class="promo-icon">🎉</span>
-                        </div>
-                        <h4 class="promo-title">Diskon 20% Pelanggan Baru</h4>
-                        <p class="promo-desc">Klaim promo ini saat menghubungi admin via WhatsApp.</p>
-                        <a href="{{ $waAdminUrl }}" target="_blank" class="promo-cta">
-                            Klaim Sekarang <i class="bi bi-arrow-right"></i>
-                        </a>
+        <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center">
+            <!-- Kolom Kiri: Tipografi & Trust Signals -->
+            <div class="text-center lg:text-left pt-2 md:pt-0">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white/60 backdrop-blur-sm border border-gray-200 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+                    <span class="text-[10px] md:text-xs font-bold tracking-widest text-brand-dark uppercase">Premium Shoe Treatment</span>
+                </div>
+                <h1 class="font-serif text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-brand-dark mb-6 tracking-tight leading-[1.1]">
+                    Kembalikan <br class="hidden lg:block"/> pesona <span class="relative inline-block text-brand-teal italic font-medium"> sepatu kesayanganmu. </span>
+                </h1>
+                <p class="text-brand-muted md:text-lg mb-8 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                    Kami merawat, membersihkan, dan mereparasi sepatu Anda dengan teknik profesional, material premium, dan sentuhan klasik.
+                </p>
+                <div class="flex items-center justify-center lg:justify-start gap-3 mb-10">
+                    <div class="flex text-brand-mustard text-lg">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
-                </div> -->
-
-                <!-- Promo Item 2 (highlight/featured) -->
-                <div class="col-md-6 col-lg-4">
-                <div class="promo-card promo-card--light h-100">
-                    <div class="promo-ribbon">GRATIS</div>
-                    <div class="promo-icon-wrap">
-                        <span class="promo-icon">🧴</span>
-                    </div>
-                    <h4 class="promo-title">Gratis Parfum</h4>
-                    <p class="promo-desc">Setiap cuci 2 pasang sepatu, dapatkan parfum anti bakteri gratis.</p>
-                    <a href="{{ $waAdminUrl }}" target="_blank" class="promo-cta">
-                        Klaim Sekarang <i class="bi bi-arrow-right"></i>
+                    <span class="text-sm font-semibold text-brand-dark">Dipercaya 100+ pelanggan</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                    <a href="{{ route('order.create') }}" class="w-full sm:w-auto bg-brand-dark text-white px-8 py-4 font-bold rounded-full shadow-soft hover:shadow-float hover:-translate-y-1 transition-all duration-300 text-center flex justify-center items-center gap-2">
+                        Buat Pesanan
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                    <a href="#layanan" class="w-full sm:w-auto bg-white text-brand-dark px-8 py-4 font-bold rounded-full border border-gray-200 hover:border-brand-teal hover:text-brand-teal transition-all duration-300 text-center shadow-sm">
+                        Lihat Layanan
                     </a>
                 </div>
             </div>
-
-                <!-- Promo Item 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="promo-card promo-card--light h-100">
-                        <div class="promo-ribbon">GRATIS</div>
-                        <div class="promo-icon-wrap">
-                            <span class="promo-icon">🚚</span>
+            <!-- Kolom Kanan: Visual -->
+            <div class="px-2 md:px-8 lg:px-0 relative">
+                <div class="relative w-full aspect-[4/3] lg:aspect-square max-w-md mx-auto lg:max-w-full lg:ml-auto">
+                    <div class="absolute inset-0 bg-white rounded-[2rem] border border-gray-100 shadow-float z-10 overflow-hidden flex items-center justify-center p-2.5">
+                        <img src="{{ asset('images/depan.png') }}" alt="Proses Cuci Sepatu" class="w-full h-full object-cover rounded-[1.5rem]" onerror="this.src='https://placehold.co/800x800/E2E8F0/64748B?text=Foto+Proses+Cuci+Sepatu'">
+                        <div class="absolute bottom-6 -left-4 lg:-left-8 bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 shadow-glass flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
+                            <div class="w-12 h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                            </div>
+                            <div class="text-left pr-2">
+                                <div class="text-xs font-bold text-brand-muted uppercase tracking-wider">Garansi</div>
+                                <div class="text-sm font-extrabold text-brand-dark">Cuci Ulang 100%</div>
+                            </div>
                         </div>
-                        <h4 class="promo-title">Gratis Antar Jemput</h4>
-                        <p class="promo-desc">Minimal transaksi Rp50.000 untuk area sekitar toko.</p>
-                        <a href="{{ $waAdminUrl }}" target="_blank" class="promo-cta">
-                            Klaim Sekarang <i class="bi bi-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Testimonial Section (Gambar Screenshot) -->
-    <section id="testimoni" class="py-5 bg-white">
-        <div class="container py-4">
-            <h2 class="section-title text-center mb-5">Kepercayaan Pelanggan Kami</h2>
-            
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6">
-                    <div id="testimoniCarousel" class="carousel slide" data-bs-ride="carousel">
-                        
-                        <div class="carousel-indicators" style="bottom: -50px;">
-                            <button type="button" data-bs-target="#testimoniCarousel" data-bs-slide-to="0" class="active bg-dark"></button>
-                            <button type="button" data-bs-target="#testimoniCarousel" data-bs-slide-to="1" class="bg-dark"></button>
-                            <button type="button" data-bs-target="#testimoniCarousel" data-bs-slide-to="2" class="bg-dark"></button>
-                        </div>
-
-                        <div class="carousel-inner shadow-sm rounded-4">
-                            
-                            <div class="carousel-item active">
-                                <div class="testi-img-wrapper">
-                                    <img src="{{ asset('images/testi-1.png') }}" alt="Screenshot Testimoni 1">
-                                </div>
-                            </div>
-                            
-                            <div class="carousel-item">
-                                <div class="testi-img-wrapper">
-                                    <img src="{{ asset('images/testi-2.png') }}" alt="Screenshot Testimoni 2">
-                                </div>
-                            </div>
-
-                            <div class="carousel-item">
-                                <div class="testi-img-wrapper">
-                                    <img src="{{ asset('images/testi-3.png') }}" alt="Screenshot Testimoni 3">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <button class="carousel-control-prev" type="button" data-bs-target="#testimoniCarousel" data-bs-slide="prev" style="width: 10%;">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#testimoniCarousel" data-bs-slide="next" style="width: 10%;">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
+    <!-- MENGAPA MEMILIH KAMI (Features) -->
+    <section id="tentang" class="py-12 px-6 md:px-12 bg-white relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-dark mb-4">Mengapa Memilih Kami?</h2>
+                <p class="text-brand-muted max-w-2xl mx-auto font-medium text-base md:text-lg">Pelayanan sepenuh hati dengan standar kebersihan dan material premium untuk sepatu kesayangan Anda.</p>
             </div>
-
-        </div>
-    </section>
-
-        <!-- Alamat / Lokasi Section -->
-    <section id="alamat" class="py-5 bg-white">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <!-- <span class="badge-eyebrow">Kunjungi Kami</span> -->
-                <h2 class="section-title mt-2">Lokasi Toko</h2>
-                <p class="text-muted">Datang langsung atau gunakan layanan antar-jemput kami.</p>
-            </div>
-
-            <div class="row g-4 align-items-stretch justify-content-center">
-
-                <!-- Info Alamat -->
-                <div class="col-lg-5">
-                    <div class="address-card h-100">
-                        <div class="address-item">
-                            <div class="address-icon">
-                                <i class="bi bi-geo-alt-fill"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1">Alamat</h6>
-                                <p class="text-muted mb-0">
-                                    Jl. H.Mandor Salim No.07, RT.5/RW.2, Srengseng,<br>
-                                    Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11630
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="address-item">
-                            <div class="address-icon">
-                                <i class="bi bi-clock-fill"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1">Jam Operasional</h6>
-                                <p class="text-muted mb-0">
-                                    Senin - Sabtu: 14.00 - 24.00<br>
-                                    Minggu Tutup
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="address-item">
-                            <!-- <div class="address-icon">
-                                <i class="bi bi-whatsapp"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1">Hubungi Kami</h6>
-                                <p class="text-muted mb-0">+62 855-5555-2353</p>
-                            </div> -->
-                        </div>
-
-                        <!-- <a href="{{ $waAdminUrl }}" target="_blank" class="btn btn-premium w-100 mt-2">
-                            Chat via WhatsApp <i class="bi bi-arrow-right ms-1"></i>
-                        </a> -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Fitur 1 -->
+                <div class="p-8 rounded-3xl bg-brand-paper/50 border border-gray-100 hover:bg-white hover:shadow-soft transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-brand-teal border border-gray-100 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                     </div>
+                    <h3 class="font-serif text-xl font-bold mb-3 text-brand-dark">Garansi Cuci</h3>
+                    <p class="text-brand-muted font-medium text-sm leading-relaxed">Hasil kurang memuaskan? Kami cuci ulang tanpa tambahan biaya sepeserpun.</p>
                 </div>
-
-                <!-- Map Embed -->
-                <div class="col-lg-6">
-                    <div class="map-wrapper h-100">
-                        <iframe
-                            src="https://www.google.com/maps?q=-6.2032467,106.7558971&z=17&output=embed"
-                            width="100%"
-                            height="100%"
-                            style="border:0; min-height:350px;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                <!-- Fitur 2 -->
+                <div class="p-8 rounded-3xl bg-brand-paper/50 border border-gray-100 hover:bg-white hover:shadow-soft transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-brand-mustard border border-gray-100 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                     </div>
+                    <h3 class="font-serif text-xl font-bold mb-3 text-brand-dark">Konsultasi Ahli</h3>
+                    <p class="text-brand-muted font-medium text-sm leading-relaxed">Tanya langsung mengenai material dan teknik cuci yang aman sebelum treatment.</p>
                 </div>
-
+                <!-- Fitur 3 -->
+                <div class="p-8 rounded-3xl bg-brand-paper/50 border border-gray-100 hover:bg-white hover:shadow-soft transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-brand-red border border-gray-100 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3 text-brand-dark">Antar Jemput</h3>
+                    <p class="text-brand-muted font-medium text-sm leading-relaxed">Layanan jemput dan antar sepatu ke depan pintu rumah Anda dengan aman.</p>
+                </div>
+                <!-- Fitur 4 -->
+                <div class="p-8 rounded-3xl bg-brand-paper/50 border border-gray-100 hover:bg-white hover:shadow-soft transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-brand-dark border border-gray-100 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3 text-brand-dark">Kualitas Terjaga</h3>
+                    <p class="text-brand-muted font-medium text-sm leading-relaxed">Pengerjaan teliti oleh profesional menggunakan sabun (cleaner) khusus sepatu.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white-50 py-4 text-center mt-5">
-        <div class="container">
-            <p class="mb-0">&copy; {{ date('Y') }} Jaywashoe. All rights reserved.</p>
+    <!-- LAYANAN KAMI -->
+    <section id="layanan" class="py-12 px-6 md:px-12 bg-[#f4f2eb]">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-dark mb-4">Layanan Kami</h2>
+                    <p class="text-brand-muted font-medium text-base md:text-lg">Perawatan khusus yang disesuaikan dengan kebutuhan dan material sepatu Anda.</p>
+                </div>
+                <a href="{{ route('order.create') }}" class="inline-flex items-center gap-2 text-brand-teal font-bold hover:text-brand-dark transition-colors text-base border-b-2 border-brand-teal hover:border-brand-dark pb-0.5">
+                    Lihat Semua
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card Fast Cleaning -->
+                <div class="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-float transition-all duration-300">
+                    <div class="relative w-full h-56 overflow-hidden bg-gray-100 p-2">
+                        <img src="{{ asset('images/fast.png') }}" alt="Fast Cleaning" class="w-full h-full object-cover rounded-3xl img-hover-zoom" onerror="this.src='https://placehold.co/600x400/E2E8F0/64748B?text=Fast+Cleaning'">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-brand-dark">Fast Cleaning</h3>
+                        <p class="text-brand-muted font-medium text-sm leading-relaxed mb-0"> Pembersihan instan bagian upper dan midsole. Cocok untuk sepatu harian yang butuh penyegaran cepat. Bisa ditunggu. </p>
+                    </div>
+                </div>
+                <!-- Card Deep Cleaning -->
+                <div class="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-float transition-all duration-300">
+                    <div class="relative w-full h-56 overflow-hidden bg-gray-100 p-2">
+                        <img src="{{ asset('images/deep.png') }}" alt="Deep Cleaning" class="w-full h-full object-cover rounded-3xl img-hover-zoom" onerror="this.src='https://placehold.co/600x400/E2E8F0/64748B?text=Deep+Cleaning'">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-brand-dark">Deep Cleaning</h3>
+                        <p class="text-brand-muted font-medium text-sm leading-relaxed mb-0"> Pencucian detail menyeluruh (outsole, midsole, insole, upper, tali) menggunakan sabun premium khusus material sepatu. </p>
+                    </div>
+                </div>
+                <!-- Card Unyellowing -->
+                <div class="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-float transition-all duration-300">
+                    <div class="relative w-full h-56 overflow-hidden bg-gray-100 p-2">
+                        <img src="{{ asset('images/unyellowing.png') }}" alt="Unyellowing" class="w-full h-full object-cover rounded-3xl img-hover-zoom" onerror="this.src='https://placehold.co/600x400/E2E8F0/64748B?text=Unyellowing'">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-brand-dark">Unyellowing</h3>
+                        <p class="text-brand-muted font-medium text-sm leading-relaxed mb-0"> Treatment khusus menghilangkan noda kuning oksidasi pada midsole karet. Membuat sol menguning kembali putih cerah. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI INFINITE SCROLL -->
+    <section id="galeri" class="py-12 bg-white overflow-hidden">
+        <div class="text-center mb-12 px-6">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-dark mb-4">Hasil Karya Kami</h2>
+            <p class="text-brand-muted font-medium text-base md:text-lg max-w-xl mx-auto">Melihat langsung keajaiban dari tangan-tangan ahli kami.</p>
+        </div>
+        <div class="marquee-wrapper relative w-full flex overflow-hidden fade-edges py-6">
+            <div class="animate-marquee min-w-max items-center" style="animation-play-state: running !important;">
+                <img src="{{ asset('images/beforeafter1.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+1'">
+                <img src="{{ asset('images/beforeafter2.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+2'">
+                <img src="{{ asset('images/beforeafter3.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+3'">
+                <img src="{{ asset('images/beforeafter4.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+4'">
+                <img src="{{ asset('images/beforeafter5.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+5'">
+            </div>
+            <div class="animate-marquee min-w-max items-center" aria-hidden="true" style="animation-play-state: running !important;">
+                <img src="{{ asset('images/beforeafter1.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+1'">
+                <img src="{{ asset('images/beforeafter2.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+2'">
+                <img src="{{ asset('images/beforeafter3.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+3'">
+                <img src="{{ asset('images/beforeafter4.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+4'">
+                <img src="{{ asset('images/beforeafter5.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+5'">
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION (CTA) -->
+    <section class="py-16 md:py-20 bg-brand-dark text-center flex flex-col items-center justify-center px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+        <div class="max-w-2xl relative z-10">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight"> Sepatumu butuh sentuhan magis? </h2>
+            <p class="text-white/80 text-base md:text-lg mb-10 font-medium"> Kirim pesan ke tim ahli kami atau jadwalkan layanan antar-jemput secara gratis di wilayah terdekat Anda. </p>
+            <a href="https://wa.me/628123456789" class="inline-flex items-center gap-3 bg-white text-brand-dark font-bold px-8 py-4 rounded-full shadow-soft hover:shadow-float hover:-translate-y-1 hover:bg-brand-paper transition-all duration-300 text-sm md:text-base">
+                Hubungi via WhatsApp
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER ELEGAN -->
+    <footer class="bg-white text-brand-dark pt-16 pb-8 px-6 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-16">
+            <div class="md:col-span-5">
+                <a href="#" class="inline-block mb-6">
+                    <img src="{{ asset('images/logo.png') }}" alt="Jaywashoe Logo" class="h-12 w-auto object-contain" onerror="this.src='https://placehold.co/100x100/F9F7F1/1E2322?text=Logo'">
+                </a>
+                <p class="font-medium text-sm leading-relaxed max-w-sm text-brand-muted">
+                    Layanan cuci dan perawatan sepatu premium dengan metode teruji yang dipadukan dengan standar kebersihan modern.
+                </p>
+            </div>
+            <div class="md:col-span-3">
+                <h4 class="font-bold text-brand-dark mb-6 tracking-wider uppercase text-xs">Hubungi Kami</h4>
+                <div class="flex flex-col gap-4 font-medium text-sm text-brand-muted">
+                    <p class="flex items-center gap-3 hover:text-brand-teal transition-colors cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        +62 812 3456 7890
+                    </p>
+                    <p class="flex items-center gap-3 hover:text-brand-teal transition-colors cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        +62 898 7654 3210
+                    </p>
+                </div>
+            </div>
+            <div class="md:col-span-4">
+                <h4 class="font-bold text-brand-dark mb-6 tracking-wider uppercase text-xs">Workshop</h4>
+                <p class="font-medium text-sm leading-relaxed max-w-xs text-brand-muted">
+                    Jl. Sepatu Kaca No. 99, Kel. Mulus, Kec. Bersih, Jakarta Selatan, 12345
+                </p>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-semibold text-xs text-brand-muted">
+            <p>&copy; {{ date('Y') }} Jaywashoe. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-brand-teal transition-colors uppercase tracking-wider">Instagram</a>
+                <a href="#" class="hover:text-brand-teal transition-colors uppercase tracking-wider">TikTok</a>
+            </div>
         </div>
     </footer>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="{{ $waAdminUrl }}" target="_blank" class="float-wa">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.004-3.621 2.952-6.57 6.57-6.572 1.755.001 3.406.685 4.646 1.926a6.571 6.571 0 0 1 1.92 4.643c-.004 3.62-2.951 6.57-6.57 6.572zm3.605-4.92c-.198-.1-1.173-.578-1.353-.646-.18-.068-.312-.1-.444.1-.132.2-.511.646-.627.778-.115.132-.23.15-.428.05-.198-.1-.837-.308-1.594-.984-.588-.52-.985-1.163-1.103-1.362-.118-.2-.013-.307.086-.405.089-.089.198-.231.297-.346.1-.116.132-.198.198-.33.066-.132.033-.248-.016-.347-.05-.1-.444-1.071-.608-1.468-.16-.39-.32-.337-.444-.343-.12-.005-.255-.005-.387-.005-.132 0-.347.05-.528.248-.18.2-.686.671-.686 1.637 0 .966.702 1.898.8 2.03.1.132 1.386 2.115 3.358 2.964.469.202.835.323 1.121.413.47.15.898.128 1.236.078.377-.056 1.173-.479 1.338-.942.164-.463.164-.86.115-.942-.05-.082-.18-.132-.378-.23z"/>
-        </svg>
-    </a>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

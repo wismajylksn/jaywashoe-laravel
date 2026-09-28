@@ -1,0 +1,302 @@
+:root {
+    --brand-primary: #0F172A;
+    --brand-secondary: #1E293B;
+    --brand-accent: #4F46E5;
+    --brand-accent-soft: #EEF2FF;
+    --brand-success: #10B981;
+    --bg-body: #F8FAFC;
+    --text-main: #334155;
+    --text-muted: #64748B;
+    --surface-color: #ffffff;
+    --border-color: #E2E8F0;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.02);
+    --shadow-md: 0 12px 32px -12px rgba(0,0,0,0.1);
+    --shadow-lg: 0 20px 40px -8px rgba(0,0,0,0.15);
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 28px;
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 15px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.custom-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border: none;
+}
+
+.card-header-dark {
+    background-color: var(--brand-primary);
+    color: white;
+    padding: 40px 20px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.logo-box {
+    background: white;
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 6px;
+    transform: rotate(-3deg);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.logo-box:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.logo-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+}
+
+.brand-title {
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+    color: #94A3B8;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.card-body-custom {
+    padding: 35px 25px;
+}
+
+.custom-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.custom-input {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: 16px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--brand-primary);
+    background-color: #F8FAFC;
+    transition: all 0.2s ease;
+    margin-bottom: 24px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.custom-input::placeholder {
+    color: #94A3B8;
+    font-weight: 500;
+}
+
+.custom-input:focus {
+    border-color: var(--brand-accent);
+    outline: none;
+    background-color: var(--surface-color);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+.btn-action {
+    background: linear-gradient(135deg, var(--brand-accent) 0%, #6366F1 100%);
+    color: white;
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border: none;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+}
+
+.btn-action:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(79, 70, 229, 0.35);
+}
+
+.btn-action:disabled {
+    background: #CBD5E1;
+    box-shadow: none;
+    color: #94A3B8;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.promo-wrapper {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.promo-wrapper .custom-input {
+    margin-bottom: 0;
+}
+
+.btn-promo {
+    background-color: var(--brand-primary);
+    color: white;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    padding: 0 24px;
+    border: none;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.btn-promo:hover {
+    background-color: var(--brand-secondary);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.btn-promo:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.billing-box {
+    background-color: #F8FAFC;
+    border: 1px dashed #CBD5E1;
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 24px;
+    display: none;
+}
+
+.billing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.text-strike {
+    text-decoration: line-through;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-right: 8px;
+}
+
+.footer-text {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+.btn-trigger-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+}
+
+.service-option {
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    margin-bottom: 12px;
+    background-color: var(--surface-color);
+    transition: 0.2s ease;
+}
+
+.service-option:hover {
+    border-color: #CBD5E1;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-qty {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-qty-minus {
+    background-color: #F1F5F9;
+    color: var(--text-main);
+}
+
+.btn-qty-minus:active {
+    background-color: #E2E8F0;
+    transform: scale(0.95);
+}
+
+.btn-qty-plus {
+    background-color: var(--brand-accent-soft);
+    color: var(--brand-accent);
+}
+
+.btn-qty-plus:active {
+    background-color: #DDE0FF;
+    transform: scale(0.95);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.badge-soft-success {
+    background-color: var(--brand-success-soft, #ECFDF5);
+    color: var(--brand-success);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+@media (max-width: 480px) {
+    .app-container {
+        padding: 20px 10px;
+    }
+}

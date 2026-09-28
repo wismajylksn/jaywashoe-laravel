@@ -1,7 +1,19 @@
 
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-import Alpine from 'alpinejs';
+    // Mencegah error jika elemen tidak ditemukan di halaman lain
+    if(mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-window.Alpine = Alpine;
-
-Alpine.start();
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
+});

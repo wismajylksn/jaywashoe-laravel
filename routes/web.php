@@ -28,8 +28,21 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/buat-pesanan', [OrderController::class, 'create'])->name('order.create');
 Route::post('/buat-pesanan', [OrderController::class, 'store'])->name('order.store');
+Route::post('/check-promo', [App\Http\Controllers\OrderController::class, 'checkPromo'])->name('promo.check');
 
 Route::get('/track-order/{uuid}', [OrderController::class, 'showTracking'])->name('order.track');
+
+// ==========================================
+// RUTE PUBLIK (Bisa diakses oleh pelanggan)
+// ==========================================
+
+Route::post('/order/store', [OrderController::class, 'store'])
+    ->name('order.store')
+    ->middleware('throttle:3,10'); // Pelindung Spam Aktif
+
+// ==========================================
+// RUTE ADMIN (Wajib Login & Area Tertutup)
+// ==========================================
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     // Menu Utama (Dashboard)
@@ -41,11 +54,15 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::delete('/services/{id}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
     Route::put('/services/{service}', [ServiceController::class, 'update'])->name('admin.services.update');
 
-    // Kelola Pesanan
+    // Rute Promo
+    Route::get('/promos', [App\Http\Controllers\Admin\PromoController::class, 'index'])->name('admin.promos.index');
+    Route::post('/promos', [App\Http\Controllers\Admin\PromoController::class, 'store'])->name('admin.promos.store');
+    Route::put('/promos/{id}', [App\Http\Controllers\Admin\PromoController::class, 'update'])->name('admin.promos.update');
+    Route::delete('/promos/{id}', [App\Http\Controllers\Admin\PromoController::class, 'destroy'])->name('admin.promos.destroy');
+
+    // Kelola Pesanan (Admin)
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
     Route::put('/orders/{id}/status', [AdminOrderController::class, 'updateStatus'])->name('admin.orders.update');
-    
-    // TAMBAHKAN BARIS INI (YANG SEBELUMNYA TERTINGGAL):
     Route::delete('/orders/{id}', [AdminOrderController::class, 'destroy'])->name('admin.orders.destroy');
 });
 
