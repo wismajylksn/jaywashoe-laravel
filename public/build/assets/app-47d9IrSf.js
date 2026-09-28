@@ -1,0 +1,1 @@
+document.addEventListener(`DOMContentLoaded`,function(){let e=document.getElementById(`mobile-menu-btn`),t=document.getElementById(`mobile-menu`),n=document.querySelectorAll(`.mobile-link`);e&&t&&(e.addEventListener(`click`,function(){t.classList.toggle(`hidden`)}),n.forEach(e=>{e.addEventListener(`click`,()=>{t.classList.add(`hidden`)})}))});

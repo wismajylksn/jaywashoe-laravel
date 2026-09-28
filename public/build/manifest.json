@@ -1,0 +1,47 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-DEfzdlBc.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/order.css": {
+    "file": "assets/order-DRlFPWjx.css",
+    "name": "order",
+    "names": [
+      "order.css"
+    ],
+    "src": "resources/css/order.css",
+    "isEntry": true
+  },
+  "resources/css/tracking.css": {
+    "file": "assets/tracking-Dkg4F8Fp.css",
+    "name": "tracking",
+    "names": [
+      "tracking.css"
+    ],
+    "src": "resources/css/tracking.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-47d9IrSf.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/order.js": {
+    "file": "assets/order-Dxul8q1r.js",
+    "name": "order",
+    "src": "resources/js/order.js",
+    "isEntry": true
+  },
+  "resources/js/tracking.js": {
+    "file": "assets/tracking-CXmgsIcH.js",
+    "name": "tracking",
+    "src": "resources/js/tracking.js",
+    "isEntry": true
+  }
+}
