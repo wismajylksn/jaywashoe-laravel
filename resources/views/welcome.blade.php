@@ -59,57 +59,59 @@
         </div>
     </div>
 
+<!-- HERO SECTION -->
     <!-- HERO SECTION -->
-    <section id="beranda" class="relative pt-4 pb-12 md:pt-0 md:pb-20 px-6 overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-40">
-            <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[60%] rounded-full bg-brand-teal/20 blur-[100px]"></div>
-            <div class="absolute top-[20%] right-[5%] w-[40%] h-[50%] rounded-full bg-brand-mustard/15 blur-[100px]"></div>
-        </div>
-        <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center">
-            <!-- Kolom Kiri: Tipografi & Trust Signals -->
-            <div class="text-center lg:text-left pt-2 md:pt-0">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white/60 backdrop-blur-sm border border-gray-200 shadow-sm">
-                    <span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
-                    <span class="text-[10px] md:text-xs font-bold tracking-widest text-brand-dark uppercase">Premium Shoe Treatment</span>
+    <section id="beranda" class="pt-6 pb-12 overflow-hidden">
+        
+        <!-- Wrapper Card Hero: Tinggi dipangkas menggunakan padding, tidak lagi full-screen -->
+        <div class="relative max-w-[96%] xl:max-w-7xl mx-auto rounded-[2.5rem] flex items-center justify-center px-6 py-20 lg:py-24 overflow-hidden shadow-sm">
+            
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="{{ asset('images/depan.png') }}" alt="Proses Cuci Sepatu" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/1920x1080/E2E8F0/64748B?text=Foto+Background+Hero'">
+                <!-- Overlay putih transparan -->
+                <div class="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
+            </div>
+
+            <!-- Konten Hero -->
+            <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
+                
+                <!-- Badge Top -->
+                <div class="inline-flex items-center gap-2 px-5 py-2 mb-8 rounded-full bg-white shadow-sm border border-gray-100">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#629487] animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest text-slate-800 uppercase">Premium Shoe Treatment</span>
                 </div>
-                <h1 class="font-serif text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-brand-dark mb-6 tracking-tight leading-[1.1]">
-                    Kembalikan <br class="hidden lg:block"/> pesona <span class="relative inline-block text-brand-teal italic font-medium"> sepatu kesayanganmu. </span>
+                
+                <!-- Headline Utama Berwarna -->
+                <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-[1.15]">
+                    <span class="text-slate-900">Kembalikan pesona</span> <br class="hidden md:block"/> 
+                    <span class="text-[#629487] italic font-medium">sepatu kesayanganmu.</span>
                 </h1>
-                <p class="text-brand-muted md:text-lg mb-8 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                
+                <!-- Deskripsi -->
+                <p class="text-slate-700 md:text-lg mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
                     Kami merawat, membersihkan, dan mereparasi sepatu Anda dengan teknik profesional, material premium, dan sentuhan klasik.
                 </p>
-                <div class="flex items-center justify-center lg:justify-start gap-3 mb-10">
-                    <div class="flex text-brand-mustard text-lg">
+                
+                <!-- Trust Signal / Rating Berwarna -->
+                <div class="flex items-center justify-center gap-3 mb-12 bg-white px-6 py-3 rounded-full shadow-md border border-gray-100">
+                    <div class="flex text-[#DFA826] text-xl">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
-                    <span class="text-sm font-semibold text-brand-dark">Dipercaya 100+ pelanggan</span>
+                    <span class="text-sm font-bold text-slate-800">Dipercaya 100+ pelanggan</span>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-                    <a href="{{ route('order.create') }}" class="w-full sm:w-auto bg-brand-dark text-white px-8 py-4 font-bold rounded-full shadow-soft hover:shadow-float hover:-translate-y-1 transition-all duration-300 text-center flex justify-center items-center gap-2">
+                
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
+                    <a href="{{ route('order.create') }}" class="w-full sm:w-auto bg-slate-900 text-white px-8 py-4 font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex justify-center items-center gap-2">
                         Buat Pesanan
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
-                    <a href="#layanan" class="w-full sm:w-auto bg-white text-brand-dark px-8 py-4 font-bold rounded-full border border-gray-200 hover:border-brand-teal hover:text-brand-teal transition-all duration-300 text-center shadow-sm">
+                    <a href="#layanan" class="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 font-bold rounded-full border border-gray-200 hover:text-[#629487] hover:border-[#629487] transition-all duration-300 text-center shadow-sm">
                         Lihat Layanan
                     </a>
                 </div>
-            </div>
-            <!-- Kolom Kanan: Visual -->
-            <div class="px-2 md:px-8 lg:px-0 relative">
-                <div class="relative w-full aspect-[4/3] lg:aspect-square max-w-md mx-auto lg:max-w-full lg:ml-auto">
-                    <div class="absolute inset-0 bg-white rounded-[2rem] border border-gray-100 shadow-float z-10 overflow-hidden flex items-center justify-center p-2.5">
-                        <img src="{{ asset('images/depan.png') }}" alt="Proses Cuci Sepatu" class="w-full h-full object-cover rounded-[1.5rem]" onerror="this.src='https://placehold.co/800x800/E2E8F0/64748B?text=Foto+Proses+Cuci+Sepatu'">
-                        <div class="absolute bottom-6 -left-4 lg:-left-8 bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 shadow-glass flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
-                            <div class="w-12 h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                            </div>
-                            <div class="text-left pr-2">
-                                <div class="text-xs font-bold text-brand-muted uppercase tracking-wider">Garansi</div>
-                                <div class="text-sm font-extrabold text-brand-dark">Cuci Ulang 100%</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -214,18 +216,18 @@
         </div>
         <div class="marquee-wrapper relative w-full flex overflow-hidden fade-edges py-6">
             <div class="animate-marquee min-w-max items-center" style="animation-play-state: running !important;">
-                <img src="{{ asset('images/beforeafter1.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+1'">
-                <img src="{{ asset('images/beforeafter2.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+2'">
-                <img src="{{ asset('images/beforeafter3.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+3'">
-                <img src="{{ asset('images/beforeafter4.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+4'">
-                <img src="{{ asset('images/beforeafter5.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+5'">
+                <img src="{{ asset('images/beforeafter1.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+1'">
+                <img src="{{ asset('images/beforeafter2.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+2'">
+                <img src="{{ asset('images/beforeafter3.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+3'">
+                <img src="{{ asset('images/beforeafter4.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+4'">
+                <img src="{{ asset('images/beforeafter5.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+5'">
             </div>
             <div class="animate-marquee min-w-max items-center" aria-hidden="true" style="animation-play-state: running !important;">
-                <img src="{{ asset('images/beforeafter1.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+1'">
-                <img src="{{ asset('images/beforeafter2.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+2'">
-                <img src="{{ asset('images/beforeafter3.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+3'">
-                <img src="{{ asset('images/beforeafter4.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+4'">
-                <img src="{{ asset('images/beforeafter5.png') }}" alt="Gallery" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+5'">
+                <img src="{{ asset('images/beforeafter1.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+1'">
+                <img src="{{ asset('images/beforeafter2.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+2'">
+                <img src="{{ asset('images/beforeafter3.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+3'">
+                <img src="{{ asset('images/beforeafter4.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/F1F5F9/64748B?text=Karya+4'">
+                <img src="{{ asset('images/beforeafter5.webp') }}" alt="Gallery" loading="lazy" class="w-64 md:w-80 h-[28rem] object-cover rounded-3xl shadow-soft hover:shadow-float transition-all duration-300" onerror="this.src='https://placehold.co/400x600/E2E8F0/64748B?text=Karya+5'">
             </div>
         </div>
     </section>
@@ -270,14 +272,14 @@
             <div class="md:col-span-4">
                 <h4 class="font-bold text-brand-dark mb-6 tracking-wider uppercase text-xs">Workshop</h4>
                 <p class="font-medium text-sm leading-relaxed max-w-xs text-brand-muted">
-                    Jl. Sepatu Kaca No. 99, Kel. Mulus, Kec. Bersih, Jakarta Selatan, 12345
+                    Jl. H.Mandor Salim No.07, RT.5/RW.2, Srengseng, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11630
                 </p>
             </div>
         </div>
         <div class="max-w-6xl mx-auto border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-semibold text-xs text-brand-muted">
             <p>&copy; {{ date('Y') }} Jaywashoe. All rights reserved.</p>
             <div class="flex gap-6">
-                <a href="#" class="hover:text-brand-teal transition-colors uppercase tracking-wider">Instagram</a>
+                <a href="https://www.instagram.com/jaywashoe/" class="hover:text-brand-teal transition-colors uppercase tracking-wider">Instagram</a>
                 <a href="#" class="hover:text-brand-teal transition-colors uppercase tracking-wider">TikTok</a>
             </div>
         </div>
